@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 25px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
