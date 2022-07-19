@@ -1,14 +1,14 @@
 .rocketItem {
-    display: flex;
-    padding: 1rem 2.5rem;
+  display: flex;
+  padding: 1rem 2.5rem;
 }
 
 .imgDescription img {
-    width: 200px;
+  width: 200px;
 }
 
 .textDescription {
-    align-items: flex-start;
-    justify-content: left;
-    margin-left: 0.5rem;
+  align-items: flex-start;
+  justify-content: left;
+  margin-left: 0.5rem;
 }
