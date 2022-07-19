@@ -6,16 +6,6 @@ import RocketItem from './RocketItem';
 const Rockets = () => {
   const dispatch = useDispatch();
 
-  // const myarr = [
-  //   {
-  //     id: "1",
-  //     img: "image",
-  //     title: "Falcon1",
-  //     description: "blablabla",
-  //     reserved: false,
-  //   },
-  // ];
-
   useEffect(() => {
     dispatch(fetchRockets());
   }, [dispatch]);
