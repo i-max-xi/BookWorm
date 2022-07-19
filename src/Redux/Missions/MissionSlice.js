@@ -1,11 +1,11 @@
-const FETCH_MISSIONS = "space-travelers/Rockets/FETCH_MISSIONS";
+const FETCH_MISSIONS = "space-travelers/Missions/FETCH_MISSIONS";
 const baseURL = "https://api.spacexdata.com/v3/missions";
 
 // Reducer
 const missionsReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_MISSIONS:
-      return action.rockets;
+      return action.missions;
     default:
       return state;
   }
@@ -13,30 +13,27 @@ const missionsReducer = (state = [], action) => {
 
 // Action
 export const getMissions = (missions) => ({
-  type: FETCH_ROCKET,
+  type: FETCH_MISSIONS,
   missions,
 });
 
 // Fetch API
 export const fetchMissions = () => async (dispatch) => {
-  const arrayOfRockets = await fetch(baseURL)
+  const arrayOfMissions = await fetch(baseURL)
     .then((res) => res.json())
     .then((data) =>
-      Object.entries(data).map(([id, rocket]) => {
-        const { description } = rocket;
-        const name = rocket.rocket_name;
-        const image = rocket.flickr_images[0];
-        const ID = Number(id) + 1;
+      Object.entries(data).map((mission) => {
+        const { description, id } = mission[1];
+        const name = mission[1].mission_name;
         return {
-          ID,
+          id,
           description,
           name,
-          image,
         };
       })
     );
 
-  dispatch(getMissions(arrayOfRockets));
+  dispatch(getMissions(arrayOfMissions));
 };
 
 export default missionsReducer;
