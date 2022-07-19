@@ -1,10 +1,18 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Missions from './components/Missions';
+import Rockets from './components/Rockets';
 import './styles/App.css';
 
 function App() {
+  //  link navbar to <NavBar /> component
   return (
-    <div className="App">
-      <p>Space Travelers</p>
-    </div>
+    <Router>
+      {/* <NavBar /> */}
+      <Routes>
+        <Route path="/" element={<Rockets />} />
+        <Route path="/missions" element={<Missions />} />
+      </Routes>
+    </Router>
   );
 }
 
