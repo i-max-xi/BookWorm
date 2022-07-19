@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Missions from './components/Missions';
 import Rockets from './components/Rockets';
 import Navbar from './components/Navbar';
@@ -7,14 +7,14 @@ import './styles/App.css';
 
 function App() {
   return (
-    <Router>
+    <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Rockets />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </Router>
+    </div>
   );
 }
 

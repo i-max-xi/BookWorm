@@ -1,29 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchRockets } from '../Redux/Rockets/RocketSlice';
+import RocketItem from './RocketItem';
 
 const Rockets = () => {
-  const myarr = [
-    {
-      id: '1',
-      img: 'image',
-      title: 'Falcon1',
-      description: 'blablabla',
-      reserved: false,
-    },
-  ];
+  const rockets = useSelector((state) => state.rockets);
+  const dispatch = useDispatch();
 
-  const rendered = myarr.map((data) => (
-    <div key={data.id}>
-      <h3>{data.title}</h3>
-      <p>{data.description}</p>
-      {data.reserved === true ? <button type="button">Reserve Rocket</button>
-        : <button type="button">Cancel Reservation</button>}
+  // const myarr = [
+  //   {
+  //     id: "1",
+  //     img: "image",
+  //     title: "Falcon1",
+  //     description: "blablabla",
+  //     reserved: false,
+  //   },
+  // ];
 
-    </div>
-  ));
+  useEffect(() => {
+    dispatch(fetchRockets(rockets));
+  }, [dispatch]);
 
   return (
-    <div>
-      {rendered}
+    <div className="rocketsPage">
+      <ul className="rocketsContainer">
+        {rockets.map((rocket) => (
+          <RocketItem
+            key={rocket.id}
+            name={rocket.name}
+            image={rocket.image}
+            description={rocket.description}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

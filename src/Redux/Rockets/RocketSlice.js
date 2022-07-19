@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const FETCH_ROCKET = 'space-travelers/Rockets/FETCH_ROCKET';
 const baseURL = 'https://api.spacexdata.com/v3/rockets';
 
@@ -7,7 +5,7 @@ const baseURL = 'https://api.spacexdata.com/v3/rockets';
 const rocketsReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_ROCKET:
-      return action.rocket;
+      return [...state, action.rocket];
     default:
       return state;
   }
@@ -21,20 +19,42 @@ export const getRockets = (rocket) => ({
 
 // Fetch API
 export const fetchRockets = () => async (dispatch) => {
-  const arrayOfRockets = await axios.get(baseURL);
-  const rockets = arrayOfRockets.map((rocket) => {
-    /* eslint-disable */
-    const { id, rocket_name, description, flickr_images } = rocket;
-    /* eslint-enable */
-    console.log(rockets);
-    return {
-      id,
-      rocket_name,
-      description,
-      flickr_images,
-    };
-  });
+  const arrayOfRockets = fetch(baseURL);
+  const rockets = arrayOfRockets
+    .then((res) => res.json())
+    .then((data) => Object.entries(data).map(([id, rocket]) => {
+      const { description } = rocket;
+      const name = rocket.rocket_name;
+      const image = rocket.flickr_images;
+      const ID = Number(id) + 1;
+      return {
+        ID,
+        description,
+        name,
+        image,
+      };
+    }));
+
   dispatch(getRockets(rockets));
 };
+
+// const Rockets = fetch(baseURL)
+//   .then((res) => res.json())
+//   .then((data) =>
+//     Object.entries(data).map(([id, rocket]) => {
+//       const { description } = rocket;
+//       const name = rocket.rocket_name;
+//       const image = rocket.flickr_images;
+//       const ID = Number(id) + 1;
+//       return {
+//         ID,
+//         description,
+//         name,
+//         image,
+//       };
+//     })
+//   );
+
+// console.log(Rockets);
 
 export default rocketsReducer;
