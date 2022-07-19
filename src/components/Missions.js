@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMissions } from '../Redux/Missions/MissionSlice';
+import MissionItem from './MissionItem';
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,8 @@ const Missions = () => {
   }, [dispatch]);
 
   const missions = useSelector((state) => state.missions);
+
+  const reserved = false;
 
   return (
     <div className="missionsPage">
@@ -28,20 +31,13 @@ const Missions = () => {
         </thead>
         <tbody>
           {missions.map((mission) => (
-            <tr key={mission.id}>
-              <td key={mission.id}>{mission.name}</td>
-              <td key={mission.id}>{mission.description}</td>
-              <td key={mission.id}>
-                <button type="button">
-                  {mission.reserved ? 'Active Member' : 'Not A Member'}
-                </button>
-              </td>
-              <td key={mission.id}>
-                <button type="button">
-                  {mission.reserved ? 'Leave Mission' : 'Join Mission'}
-                </button>
-              </td>
-            </tr>
+            <MissionItem
+              key={mission.id}
+              id={mission.id}
+              name={mission.name}
+              description={mission.description}
+              reserved={reserved}
+            />
           ))}
         </tbody>
       </table>
