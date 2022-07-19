@@ -4,7 +4,6 @@ import { fetchRockets } from '../Redux/Rockets/RocketSlice';
 import RocketItem from './RocketItem';
 
 const Rockets = () => {
-  const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
 
   // const myarr = [
@@ -18,15 +17,17 @@ const Rockets = () => {
   // ];
 
   useEffect(() => {
-    dispatch(fetchRockets(rockets));
+    dispatch(fetchRockets());
   }, [dispatch]);
+
+  const rockets = useSelector((state) => state.rockets);
 
   return (
     <div className="rocketsPage">
       <ul className="rocketsContainer">
         {rockets.map((rocket) => (
           <RocketItem
-            key={rocket.id}
+            key={rocket.ID}
             name={rocket.name}
             image={rocket.image}
             description={rocket.description}

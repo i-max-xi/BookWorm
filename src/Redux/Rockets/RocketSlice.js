@@ -5,27 +5,26 @@ const baseURL = 'https://api.spacexdata.com/v3/rockets';
 const rocketsReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_ROCKET:
-      return [...state, action.rocket];
+      return action.rockets;
     default:
       return state;
   }
 };
 
 // Action
-export const getRockets = (rocket) => ({
+export const getRockets = (rockets) => ({
   type: FETCH_ROCKET,
-  rocket,
+  rockets,
 });
 
 // Fetch API
 export const fetchRockets = () => async (dispatch) => {
-  const arrayOfRockets = fetch(baseURL);
-  const rockets = arrayOfRockets
+  const arrayOfRockets = await fetch(baseURL)
     .then((res) => res.json())
     .then((data) => Object.entries(data).map(([id, rocket]) => {
       const { description } = rocket;
       const name = rocket.rocket_name;
-      const image = rocket.flickr_images;
+      const image = rocket.flickr_images[0];
       const ID = Number(id) + 1;
       return {
         ID,
@@ -35,26 +34,7 @@ export const fetchRockets = () => async (dispatch) => {
       };
     }));
 
-  dispatch(getRockets(rockets));
+  dispatch(getRockets(arrayOfRockets));
 };
-
-// const Rockets = fetch(baseURL)
-//   .then((res) => res.json())
-//   .then((data) =>
-//     Object.entries(data).map(([id, rocket]) => {
-//       const { description } = rocket;
-//       const name = rocket.rocket_name;
-//       const image = rocket.flickr_images;
-//       const ID = Number(id) + 1;
-//       return {
-//         ID,
-//         description,
-//         name,
-//         image,
-//       };
-//     })
-//   );
-
-// console.log(Rockets);
 
 export default rocketsReducer;
