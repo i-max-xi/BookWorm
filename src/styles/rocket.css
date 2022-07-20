@@ -12,3 +12,13 @@
   justify-content: left;
   margin-left: 0.5rem;
 }
+
+.textDescription button {
+  border-radius: 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.336);
+}
+
+.activeReserve {
+  background-color:rgba(0, 0, 255, 0.719);
+  color: white;
+}
