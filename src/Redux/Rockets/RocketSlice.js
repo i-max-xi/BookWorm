@@ -1,7 +1,7 @@
-export const FETCH_ROCKET = "space-travelers/Rockets/FETCH_ROCKET";
-const ADD_ROCKET = "space-travelers/Rockets/ADD_ROCKET";
+export const FETCH_ROCKET = 'space-travelers/Rockets/FETCH_ROCKET';
+const ADD_ROCKET = 'space-travelers/Rockets/ADD_ROCKET';
 
-const baseURL = "https://api.spacexdata.com/v3/rockets";
+const baseURL = 'https://api.spacexdata.com/v3/rockets';
 
 // Reducer
 const rocketsReducer = (state = [], action) => {
@@ -35,22 +35,20 @@ export const addRockets = (id) => ({
 export const fetchRockets = () => async (dispatch) => {
   const arrayOfRockets = await fetch(baseURL)
     .then((res) => res.json())
-    .then((data) =>
-      Object.entries(data).map(([id, rocket]) => {
-        const { description } = rocket;
-        const name = rocket.rocket_name;
-        const image = rocket.flickr_images[0];
-        const ID = Number(id) + 1;
-        const reserved = false;
-        return {
-          ID,
-          description,
-          name,
-          image,
-          reserved,
-        };
-      })
-    );
+    .then((data) => Object.entries(data).map(([id, rocket]) => {
+      const { description } = rocket;
+      const name = rocket.rocket_name;
+      const image = rocket.flickr_images[0];
+      const ID = Number(id) + 1;
+      const reserved = false;
+      return {
+        ID,
+        description,
+        name,
+        image,
+        reserved,
+      };
+    }));
 
   dispatch(getRockets(arrayOfRockets));
 };
