@@ -1,5 +1,5 @@
-export const FETCH_MISSIONS = "space-travelers/Missions/FETCH_MISSIONS";
-const baseURL = "https://api.spacexdata.com/v3/missions";
+export const FETCH_MISSIONS = 'space-travelers/Missions/FETCH_MISSIONS';
+const baseURL = 'https://api.spacexdata.com/v3/missions';
 
 // Reducer
 const missionsReducer = (state = [], action) => {
@@ -21,18 +21,16 @@ export const getMissions = (missions) => ({
 export const fetchMissions = () => async (dispatch) => {
   const arrayOfMissions = await fetch(baseURL)
     .then((res) => res.json())
-    .then((data) =>
-      Object.entries(data).map((mission) => {
-        const { description } = mission[1];
-        const name = mission[1].mission_name;
-        const id = mission[1].mission_id;
-        return {
-          id,
-          description,
-          name,
-        };
-      })
-    );
+    .then((data) => Object.entries(data).map((mission) => {
+      const { description } = mission[1];
+      const name = mission[1].mission_name;
+      const id = mission[1].mission_id;
+      return {
+        id,
+        description,
+        name,
+      };
+    }));
 
   dispatch(getMissions(arrayOfMissions));
 };

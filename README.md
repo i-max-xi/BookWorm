@@ -2,12 +2,14 @@
 
 # Space Travelers
 
-> This web application provides commercial and scientific space travel services. The application will allow users to book rockets and join selected space missions.
+> This web application provides commercial and scientific space travel services. The application allows users to book rockets and join selected space missions.
 
 ## Built With
 
 - Create React App (CRA)
 - React
+- Redux
+- CSS
 - linters
 
 ## Live-Demo
@@ -30,6 +32,12 @@ git clone git@github.com:virag-ky/Space-Travelers.git
 
 ```
 npm install
+```
+
+### Run tests
+
+```
+npm run test
 ```
 
 ### Open the project in the browser
@@ -63,6 +71,8 @@ Feel free to check the [issues page](../../issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgements
+
+- Used the [SpaceX API](https://docs.spacexdata.com/#notice-the-v3-api-is-deprecated-as-of-november-2020-all-existing-links-will-continue-to-work-but-no-new-data-will-be-added-or-updated-i-strongly-encourage-you-to-move-to-v4)
 
 ## 📝 License
 
