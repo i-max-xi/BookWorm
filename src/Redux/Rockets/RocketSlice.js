@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 const FETCH_ROCKET = 'space-travelers/Rockets/FETCH_ROCKET';
 const baseURL = 'https://api.spacexdata.com/v3/rockets';
 
@@ -17,6 +19,17 @@ export const getRockets = (rockets) => ({
   rockets,
 });
 
+const rockets = useSelector((state) => state.rockets);
+
+export const addRockets = (specificID) => {
+  // rockets.map((rocket) => {
+  //   if (rocket.id !== specificID) {
+  //     return rocket;
+  //   }
+  //   return { ...rocket, reserved: true };
+  // });
+};
+
 // Fetch API
 export const fetchRockets = () => async (dispatch) => {
   const arrayOfRockets = await fetch(baseURL)
@@ -26,11 +39,13 @@ export const fetchRockets = () => async (dispatch) => {
       const name = rocket.rocket_name;
       const image = rocket.flickr_images[0];
       const ID = Number(id) + 1;
+      const reserved = false;
       return {
         ID,
         description,
         name,
         image,
+        reserved,
       };
     }));
 
