@@ -20,6 +20,7 @@ const MissionItem = (props) => {
         {reserved ? (
           <button
             type="button"
+            className="leaveMission"
             onClick={() => onRemoveMission(id)}
           >
             Leave Mission
@@ -27,7 +28,7 @@ const MissionItem = (props) => {
         ) : (
           <button
             type="button"
-            className="activeReserve"
+            // className="activeReserve"
             onClick={() => onAddMission(id)}
           >
             Join Mission

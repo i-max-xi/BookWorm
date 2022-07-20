@@ -14,7 +14,10 @@ const RocketItem = (props) => {
       </div>
       <div className="textDescription">
         <h3>{name}</h3>
-        <p>{description}</p>
+        <p>
+          {reserved ? (<span className="activeReserve activeReserveSize"> Reserved </span>) : ''}
+          {description}
+        </p>
         {reserved ? (
           <button
             type="button"
