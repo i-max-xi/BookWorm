@@ -19,13 +19,13 @@ const Navbar = () => {
         </div>
         <ul className="navLinks">
           <li>
-            <NavLink to="/" className={splitLocation[1] === '' ? 'active' : ''}>Rockets</NavLink>
+            <NavLink to="/" className={splitLocation[1] === '' ? 'active' : 'inactive'}>Rockets</NavLink>
           </li>
           <li>
-            <NavLink to="missions" className={splitLocation[1] === 'missions' ? 'active' : ''}>Missions</NavLink>
+            <NavLink to="missions" className={splitLocation[1] === 'missions' ? 'active' : 'inactive'}>Missions</NavLink>
           </li>
           <li>
-            <NavLink to="profile" className={splitLocation[1] === 'profile' ? 'active' : ''}>My Profile</NavLink>
+            <NavLink to="profile" className={splitLocation[1] === 'profile' ? 'active' : 'inactive'}>My Profile</NavLink>
           </li>
         </ul>
       </nav>

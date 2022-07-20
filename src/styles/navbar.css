@@ -28,6 +28,10 @@ nav {
 }
 
 .active {
+  text-decoration: underline;
+}
+
+.inactive {
   text-decoration: none;
 }
 
