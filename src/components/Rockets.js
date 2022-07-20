@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchRockets } from '../Redux/Rockets/RocketSlice';
-import RocketItem from './RocketItem';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchRockets } from "../Redux/Rockets/RocketSlice";
+import RocketItem from "./RocketItem";
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Rockets = () => {
   const rockets = useSelector((state) => state.rockets);
 
   return (
-    <div className="rocketsPage">
+    <div className="rocketsPage" data-testid="rocketsElement">
       <ul className="rocketsContainer">
         {rockets.map((rocket) => (
           <RocketItem
