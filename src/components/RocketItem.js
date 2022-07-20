@@ -4,11 +4,7 @@ import '../styles/rocket.css';
 
 const RocketItem = (props) => {
   const {
-    image,
-    name,
-    description,
-    reserved,
-    onAddReserve,
+    image, name, description, reserved, onAddReserve, id,
   } = props;
 
   return (
@@ -22,7 +18,14 @@ const RocketItem = (props) => {
         {reserved ? (
           <button type="button">Cancel Reservation</button>
         ) : (
-          <button type="button" className="activeReserve" onClick={onAddReserve()}>Reserve Rocket</button>
+          <button
+            type="button"
+            className="activeReserve"
+            onClick={() => onAddReserve(id)}
+            data-testid="reserve"
+          >
+            Reserve Rocket
+          </button>
         )}
       </div>
     </li>
@@ -35,6 +38,7 @@ RocketItem.propTypes = {
   image: PropTypes.string.isRequired,
   reserved: PropTypes.bool.isRequired,
   onAddReserve: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default RocketItem;

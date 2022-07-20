@@ -9,3 +9,13 @@ exports[`renders correctly 1`] = `
   />
 </div>
 `;
+
+exports[`test if rockets page works correctly renders correctly 1`] = `
+<div
+  className="rocketsPage"
+>
+  <ul
+    className="rocketsContainer"
+  />
+</div>
+`;
