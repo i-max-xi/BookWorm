@@ -16,13 +16,14 @@ const RocketItem = (props) => {
         <h3>{name}</h3>
         <p>{description}</p>
         {reserved ? (
-          <button type="button">Cancel Reservation</button>
+          <button type="button" className="activeBtn">
+            Cancel Reservation
+          </button>
         ) : (
           <button
             type="button"
             className="activeReserve"
             onClick={() => onAddReserve(id)}
-            data-testid="reserve"
           >
             Reserve Rocket
           </button>

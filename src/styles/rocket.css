@@ -1,24 +1,56 @@
 .rocketItem {
   display: flex;
+  gap: 20px;
   padding: 1rem 2.5rem;
 }
 
 .imgDescription img {
-  width: 200px;
+  width: 380px;
 }
 
 .textDescription {
-  align-items: flex-start;
-  justify-content: left;
-  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.textDescription button {
-  border-radius: 0.2rem;
-  border: 1px solid rgba(0, 0, 0, 0.336);
+.textDescription > h3 {
+  font-size: 1.6rem;
+}
+
+.textDescription > p {
+  font-size: 1.5rem;
+  word-spacing: 3px;
+  line-height: 1.2;
 }
 
 .activeReserve {
   background-color: rgba(0, 0, 255, 0.719);
   color: white;
+  border-radius: 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.336);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 12px;
+  margin: 0;
 }
+
+.activeReserve:hover {
+  cursor: pointer;
+  background: rgb(223, 222, 222);
+  border: none;
+  color: rgba(0, 0, 255, 0.719);
+}
+
+.activeBtn {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: darkgray;
+  padding: 12px;
+  margin: 0;
+}
+
+.activeBtn:hover {
+  cursor: pointer;
+}
+
