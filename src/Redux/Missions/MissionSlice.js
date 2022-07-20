@@ -1,4 +1,4 @@
-const FETCH_MISSIONS = 'space-travelers/Missions/FETCH_MISSIONS';
+export const FETCH_MISSIONS = 'space-travelers/Missions/FETCH_MISSIONS';
 const baseURL = 'https://api.spacexdata.com/v3/missions';
 
 // Reducer

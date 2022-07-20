@@ -1,4 +1,4 @@
-const FETCH_ROCKET = 'space-travelers/Rockets/FETCH_ROCKET';
+export const FETCH_ROCKET = 'space-travelers/Rockets/FETCH_ROCKET';
 const baseURL = 'https://api.spacexdata.com/v3/rockets';
 
 // Reducer
