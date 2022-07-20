@@ -22,6 +22,7 @@ const RocketItem = (props) => {
             type="button"
             className="activeReserve"
             onClick={() => onAddReserve(id)}
+            data-testid="reserve"
           >
             Reserve Rocket
           </button>
