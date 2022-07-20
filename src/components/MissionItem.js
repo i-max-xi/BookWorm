@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/missions.css';
 
 const MissionItem = (props) => {
   const {
@@ -11,12 +12,12 @@ const MissionItem = (props) => {
       <td>{name}</td>
       <td>{description}</td>
       <td>
-        <button type="button">
+        <span className={reserved ? 'activeMember' : 'notMember'}>
           {reserved ? 'Active Member' : 'Not A Member'}
-        </button>
+        </span>
       </td>
       <td>
-        <button type="button">
+        <button type="button" className={reserved ? 'leaveMission' : ''}>
           {reserved ? 'Leave Mission' : 'Join Mission'}
         </button>
       </td>
