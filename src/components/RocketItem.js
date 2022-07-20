@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import '../styles/rocket.css';
 
 const RocketItem = (props) => {
-  const { image, name, description } = props;
+  const {
+    image,
+    name,
+    description,
+    reserved,
+    onAddReserve,
+  } = props;
 
   return (
     <li className="rocketItem">
@@ -13,11 +19,11 @@ const RocketItem = (props) => {
       <div className="textDescription">
         <h3>{name}</h3>
         <p>{description}</p>
-        {/* {reserved === true ? (
-        <button type="button">Reserve Rocket</button>
-      ) : (
-        <button type="button">Cancel Reservation</button>
-      )} */}
+        {reserved ? (
+          <button type="button">Cancel Reservation</button>
+        ) : (
+          <button type="button" className="activeReserve" onClick={onAddReserve()}>Reserve Rocket</button>
+        )}
       </div>
     </li>
   );
@@ -27,6 +33,8 @@ RocketItem.propTypes = {
   description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
+  onAddReserve: PropTypes.func.isRequired,
 };
 
 export default RocketItem;
