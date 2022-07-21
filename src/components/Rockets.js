@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addRockets, fetchRockets } from '../Redux/Rockets/RocketSlice';
+import {
+  addRockets,
+  fetchRockets,
+  RemoveRockets,
+} from '../Redux/Rockets/RocketSlice';
 import RocketItem from './RocketItem';
 
 const Rockets = () => {
@@ -16,6 +20,10 @@ const Rockets = () => {
     dispatch(addRockets(specificID));
   };
 
+  const RemoveReserve = (specificID) => {
+    dispatch(RemoveRockets(specificID));
+  };
+
   return (
     <div className="rocketsPage">
       <ul className="rocketsContainer">
@@ -28,6 +36,7 @@ const Rockets = () => {
             description={rocket.description}
             reserved={rocket.reserved}
             onAddReserve={AddReserve}
+            onRemoveReserve={RemoveReserve}
           />
         ))}
       </ul>

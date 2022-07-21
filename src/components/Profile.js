@@ -16,10 +16,10 @@ const Profile = () => {
         <ul className="filteredList">
           {missions.length > 0 ? (
             missions.map((mission) => (
-              <li key={missions.length + 1}>{mission.name}</li>
+              <li key={mission.name}>{mission.name}</li>
             ))
           ) : (
-            <p key="message">You haven&apos;t joined any missions yet</p>
+            <p key="message">You haven&apos;t joined any missions yet.</p>
           )}
         </ul>
       </div>
@@ -27,11 +27,9 @@ const Profile = () => {
         <h2>My Rockets</h2>
         <ul className="filteredList">
           {rockets.length > 0 ? (
-            rockets.map((rocket) => (
-              <li key={rockets.length + 1}>{rocket.name}</li>
-            ))
+            rockets.map((rocket) => <li key={rocket.name}>{rocket.name}</li>)
           ) : (
-            <p key="message">You haven&apos;t joined any missions yet</p>
+            <p key="message">You don&apos;t have any rockets yet.</p>
           )}
         </ul>
       </div>

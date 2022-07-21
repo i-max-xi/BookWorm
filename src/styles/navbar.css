@@ -17,6 +17,11 @@ nav {
   width: 80px;
 }
 
+.navLinks li a {
+  color: rgba(0, 0, 255, 0.719);
+  font-size: 1.4rem;
+}
+
 #title > a {
   text-decoration: none;
   color: unset;
@@ -29,11 +34,6 @@ nav {
   align-items: center;
   width: 400px;
   list-style: none;
-}
-
-.navLinks li a {
-  color: rgba(0, 0, 255, 0.719);
-  font-size: 1.4rem;
 }
 
 .divider {
@@ -49,4 +49,3 @@ nav {
 .inactive {
   text-decoration: none;
 }
-

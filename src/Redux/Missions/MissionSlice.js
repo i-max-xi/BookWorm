@@ -1,11 +1,27 @@
 export const FETCH_MISSIONS = 'space-travelers/Missions/FETCH_MISSIONS';
+const ADD_MISSIONS = 'space-travelers/Missions/ADD_MISSIONS';
+const REMOVE_MISSIONS = 'space-travelers/Missions/REMOVE_MISSIONS';
+
 const baseURL = 'https://api.spacexdata.com/v3/missions';
 
 // Reducer
 const missionsReducer = (state = [], action) => {
+  let newState;
   switch (action.type) {
     case FETCH_MISSIONS:
       return action.missions;
+    case ADD_MISSIONS:
+      newState = state.map((mission) => {
+        if (mission.id !== action.id) return mission;
+        return { ...mission, reserved: true };
+      });
+      return newState;
+    case REMOVE_MISSIONS:
+      newState = state.map((mission) => {
+        if (mission.id !== action.id) return mission;
+        return { ...mission, reserved: false };
+      });
+      return newState;
     default:
       return state;
   }
@@ -17,6 +33,16 @@ export const getMissions = (missions) => ({
   missions,
 });
 
+export const addMissions = (id) => ({
+  type: ADD_MISSIONS,
+  id,
+});
+
+export const removeMissions = (id) => ({
+  type: REMOVE_MISSIONS,
+  id,
+});
+
 // Fetch API
 export const fetchMissions = () => async (dispatch) => {
   const arrayOfMissions = await fetch(baseURL)
@@ -25,10 +51,12 @@ export const fetchMissions = () => async (dispatch) => {
       const { description } = mission[1];
       const name = mission[1].mission_name;
       const id = mission[1].mission_id;
+      const reserved = false;
       return {
         id,
         description,
         name,
+        reserved,
       };
     }));
 
