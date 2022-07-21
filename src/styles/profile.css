@@ -38,3 +38,23 @@
 .filteredList > li:last-child {
   border: none;
 }
+
+@media (max-width: 600px) {
+  .profilePage {
+    gap: 10px;
+  }
+
+  .filteredContainer > h2 {
+    font-size: 1.1rem;
+  }
+
+  .filteredList > p {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .filteredList > li {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
