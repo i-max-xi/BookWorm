@@ -17,7 +17,7 @@ button {
   width: max-content;
   padding: 0.3rem;
   border: 1.5px solid rgba(0, 0, 0, 0.384);
-  border-radius: 0.1rem;
+  border-radius: 0.15rem;
   margin: 1rem;
 }
 
@@ -40,13 +40,14 @@ span {
 }
 
 .notMember {
-  background-color: rgba(128, 128, 128, 0.842);
+  background-color: rgba(128, 128, 128, 0.932);
 }
 
 .activeMember {
-  background-color: rgb(25, 128, 128);
+  background-color: rgba(0, 102, 255, 0.89);
 }
 
 .leaveMission {
-  color: rgba(255, 0, 0, 0.363);
+  color: rgba(255, 0, 0, 0.678);
+  border: 1px solid rgba(255, 0, 0, 0.678);
 }

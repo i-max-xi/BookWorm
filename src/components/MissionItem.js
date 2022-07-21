@@ -4,7 +4,7 @@ import '../styles/missions.css';
 
 const MissionItem = (props) => {
   const {
-    id, name, description, reserved,
+    id, name, description, reserved, onAddMission, onRemoveMission,
   } = props;
 
   return (
@@ -17,9 +17,23 @@ const MissionItem = (props) => {
         </span>
       </td>
       <td>
-        <button type="button" className={reserved ? 'leaveMission' : ''}>
-          {reserved ? 'Leave Mission' : 'Join Mission'}
-        </button>
+        {reserved ? (
+          <button
+            type="button"
+            className="leaveMission"
+            onClick={() => onRemoveMission(id)}
+          >
+            Leave Mission
+          </button>
+        ) : (
+          <button
+            type="button"
+            // className="activeReserve"
+            onClick={() => onAddMission(id)}
+          >
+            Join Mission
+          </button>
+        )}
       </td>
     </tr>
   );
@@ -30,6 +44,8 @@ MissionItem.propTypes = {
   name: PropTypes.string.isRequired,
   reserved: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
+  onAddMission: PropTypes.func.isRequired,
+  onRemoveMission: PropTypes.func.isRequired,
 };
 
 export default MissionItem;

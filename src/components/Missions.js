@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMissions } from '../Redux/Missions/MissionSlice';
+import { addMissions, fetchMissions, removeMissions } from '../Redux/Missions/MissionSlice';
 import MissionItem from './MissionItem';
 import '../styles/missions.css';
 
@@ -13,7 +13,13 @@ const Missions = () => {
 
   const missions = useSelector((state) => state.missions);
 
-  const reserved = false;
+  const onAddMissions = (specificID) => {
+    dispatch(addMissions(specificID));
+  };
+
+  const onRemoveMissions = (specificID) => {
+    dispatch(removeMissions(specificID));
+  };
 
   return (
     <div className="missionsPage">
@@ -37,7 +43,9 @@ const Missions = () => {
               id={mission.id}
               name={mission.name}
               description={mission.description}
-              reserved={reserved}
+              reserved={mission.reserved}
+              onAddMission={onAddMissions}
+              onRemoveMission={onRemoveMissions}
             />
           ))}
         </tbody>
