@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from '../Redux/store';
 import Missions from '../components/Missions';
 
-it('renders correctly', () => {
+test('renders correctly', () => {
   const mission = renderer.create(
     <Provider store={configureStore}>
       <Missions />

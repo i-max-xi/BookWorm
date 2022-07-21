@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addMissions, fetchMissions, removeMissions } from '../Redux/Missions/MissionSlice';
+import {
+  addMissions,
+  fetchMissions,
+  removeMissions,
+} from '../Redux/Missions/MissionSlice';
 import MissionItem from './MissionItem';
 import '../styles/missions.css';
 
 const Missions = () => {
   const dispatch = useDispatch();
+  const missions = useSelector((state) => state.missions);
 
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
-
-  const missions = useSelector((state) => state.missions);
+    if (!missions.length) {
+      dispatch(fetchMissions());
+    }
+  }, []);
 
   const onAddMissions = (specificID) => {
     dispatch(addMissions(specificID));
