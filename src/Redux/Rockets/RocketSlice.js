@@ -5,6 +5,7 @@ const REMOVE_ROCKET = 'space-travelers/Rockets/REMOVE_ROCKET';
 const baseURL = 'https://api.spacexdata.com/v3/rockets';
 
 // Reducer
+
 const rocketsReducer = (state = [], action) => {
   let newState;
   let oldState;
@@ -16,7 +17,7 @@ const rocketsReducer = (state = [], action) => {
         if (rocket.ID !== action.id) return rocket;
         return { ...rocket, reserved: true };
       });
-      return newState;
+      return [...newState];
     case REMOVE_ROCKET:
       oldState = state.map((rocket) => {
         if (rocket.ID !== action.id) return rocket;
