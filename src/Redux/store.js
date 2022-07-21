@@ -1,7 +1,7 @@
-import { combineReducers, applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
-import rocketsReducer, { fetchRockets } from "./Rockets/RocketSlice";
-import missionsReducer from "./Missions/MissionSlice";
+import { combineReducers, applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import rocketsReducer, { fetchRockets } from './Rockets/RocketSlice';
+import missionsReducer from './Missions/MissionSlice';
 
 const reducers = combineReducers({
   rockets: rocketsReducer,
@@ -9,5 +9,6 @@ const reducers = combineReducers({
 });
 
 const configureStore = createStore(reducers, applyMiddleware(thunk));
+configureStore.dispatch(fetchRockets());
 
 export default configureStore;

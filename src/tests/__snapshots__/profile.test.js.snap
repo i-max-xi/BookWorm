@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test if profile page works correctly renders correctly 1`] = `
+<div
+  className="profilePage"
+>
+  <div
+    className="filteredContainer"
+  >
+    <h2>
+      My Missions
+    </h2>
+    <ul
+      className="filteredList"
+    >
+      <p>
+        You haven't joined any missions yet.
+      </p>
+    </ul>
+  </div>
+  <div
+    className="filteredContainer"
+  >
+    <h2>
+      My Rockets
+    </h2>
+    <ul
+      className="filteredList"
+    >
+      <p>
+        You don't have any rockets yet.
+      </p>
+    </ul>
+  </div>
+</div>
+`;
