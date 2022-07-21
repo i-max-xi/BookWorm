@@ -1,0 +1,40 @@
+.profilePage {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 45px;
+}
+
+.filteredContainer {
+  width: 45%;
+}
+
+.filteredContainer > h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: rgb(43, 42, 42);
+  font-weight: normal;
+}
+
+.filteredList {
+  border: 2px solid rgb(170, 169, 169);
+  border-radius: 5px;
+}
+
+.filteredList > p {
+  padding: 20px;
+  font-size: 1.2rem;
+  color: rgb(43, 42, 42);
+}
+
+.filteredList > li {
+  list-style: none;
+  padding: 50px 20px;
+  font-size: 1.5rem;
+  color: rgb(43, 42, 42);
+  border-bottom: 2px solid rgb(170, 169, 169);
+}
+
+.filteredList > li:last-child {
+  border: none;
+}

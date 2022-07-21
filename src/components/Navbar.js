@@ -13,19 +13,37 @@ const Navbar = () => {
       <nav>
         <div className="logoContainer">
           <img src={logo} alt="planet app logo" className="logo" />
-          <h1>
+          <h1 id="title">
             <NavLink to="/">Space Traveler&apos;s Hub</NavLink>
           </h1>
         </div>
         <ul className="navLinks">
           <li>
-            <NavLink to="/" className={splitLocation[1] === '' ? 'active' : 'inactive'}>Rockets</NavLink>
+            <NavLink
+              to="/"
+              className={splitLocation[1] === '' ? 'active' : 'inactive'}
+            >
+              Rockets
+            </NavLink>
           </li>
           <li>
-            <NavLink to="missions" className={splitLocation[1] === 'missions' ? 'active' : 'inactive'}>Missions</NavLink>
+            <NavLink
+              to="missions"
+              className={
+                splitLocation[1] === 'missions' ? 'active' : 'inactive'
+              }
+            >
+              Missions
+            </NavLink>
           </li>
+          <li className="divider" />
           <li>
-            <NavLink to="profile" className={splitLocation[1] === 'profile' ? 'active' : 'inactive'}>My Profile</NavLink>
+            <NavLink
+              to="profile"
+              className={splitLocation[1] === 'profile' ? 'active' : 'inactive'}
+            >
+              My Profile
+            </NavLink>
           </li>
         </ul>
       </nav>

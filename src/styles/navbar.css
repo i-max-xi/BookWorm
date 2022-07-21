@@ -1,31 +1,45 @@
 nav {
   display: flex;
   justify-content: space-between;
-  width: 95%;
-  padding: 1.4rem 3rem 2rem 0;
-  margin: 0 2rem;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.336);
-  overflow: hidden;
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .logo {
-  width: 50px;
+  width: 80px;
+}
+
+.navLinks li a {
+  color: rgba(0, 0, 255, 0.719);
+  font-size: 1.4rem;
+}
+
+#title > a {
+  text-decoration: none;
+  color: unset;
+  font-size: 2.4rem;
 }
 
 .navLinks {
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  align-items: center;
+  width: 400px;
   list-style: none;
 }
 
-.navLinks li a {
-  color: rgba(0, 0, 255, 0.548);
+.divider {
+  width: 3px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.336);
 }
 
 .active {
@@ -34,9 +48,4 @@ nav {
 
 .inactive {
   text-decoration: none;
-}
-
-.navLinks li:last-child::before {
-  content: "|";
-  margin-right: 1.5rem;
 }

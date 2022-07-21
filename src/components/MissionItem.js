@@ -9,8 +9,8 @@ const MissionItem = (props) => {
 
   return (
     <tr key={id}>
-      <td>{name}</td>
-      <td>{description}</td>
+      <td className="name">{name}</td>
+      <td className="description">{description}</td>
       <td>
         <span className={reserved ? 'activeMember' : 'notMember'}>
           {reserved ? 'Active Member' : 'Not A Member'}
@@ -28,7 +28,7 @@ const MissionItem = (props) => {
         ) : (
           <button
             type="button"
-            // className="activeReserve"
+            className="join"
             onClick={() => onAddMission(id)}
           >
             Join Mission
