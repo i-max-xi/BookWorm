@@ -77,3 +77,33 @@
   color: #fff;
   border: 1px solid rgba(134, 134, 134, 0.336);
 }
+
+@media (max-width: 600px) {
+  .imgDescription > img {
+    width: 250px;
+  }
+
+  .rocketItem {
+    flex-direction: column;
+  }
+
+  .textDescription > p {
+    font-size: 1.1rem;
+    word-spacing: 3px;
+    line-height: 1.2;
+  }
+
+  .activeReserve {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .activeBtn {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .activeReserveSize {
+    padding: 5px;
+  }
+}

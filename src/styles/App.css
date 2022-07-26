@@ -4,3 +4,9 @@ body {
   font-family: 'Roboto', sans-serif;
   padding: 0 4rem 2rem 4rem;
 }
+
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+}

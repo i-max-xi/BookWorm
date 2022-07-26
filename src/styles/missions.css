@@ -86,3 +86,22 @@ span {
 .leaveMission:hover {
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .missionsPage {
+    display: unset;
+  }
+
+  th {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
